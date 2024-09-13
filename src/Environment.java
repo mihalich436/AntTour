@@ -15,7 +15,11 @@ public class Environment {
         List<Town> townList = new ArrayList<>();
         List<Road> roadList = new ArrayList<>();
         for (int i=0; i<townNum; i++){
-            Town town = new Town(Math.cos(angle * i) * radius, Math.sin(angle * i) * radius);
+            Town town = new Town(
+                    Math.cos(angle * i) * radius,
+                    Math.sin(angle * i) * radius,
+                    "(" + (i+1) + ")"
+            );
             townList.add(town);
         }
         for (int i = 0; i < townList.size() - 1; i++){
@@ -29,5 +33,9 @@ public class Environment {
 
     public List<Town> getTowns() {
         return towns;
+    }
+
+    public List<Road> getRoads() {
+        return roads;
     }
 }

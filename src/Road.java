@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public class Road {
-    private static final double pheromoneDecreaseCoef = 1;
+    private static double pheromoneDecreaseCoef = 1.0;
     private final Town start;
     private final Town end;
     private double pheromone;
@@ -31,5 +31,13 @@ public class Road {
 
     public void addPheromone(double pheromone) {
         this.pheromone += pheromone;
+    }
+
+    public Town getOtherEnd(Town town){
+        return start.equals(town) ? end : start;
+    }
+
+    public static void setPheromoneDecreaseCoef(double pheromoneDecreaseCoef) {
+        Road.pheromoneDecreaseCoef = pheromoneDecreaseCoef;
     }
 }
